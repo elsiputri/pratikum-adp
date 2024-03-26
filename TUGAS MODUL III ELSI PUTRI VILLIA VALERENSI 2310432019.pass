@@ -1,0 +1,21 @@
+program Perulangan;
+uses crt;
+
+var
+  angka: integer;
+
+begin
+writeln('angka:');
+clrscr;
+  for angka := 1 to 80 do
+  begin
+    if (angka mod 4 = 0) then
+      write('DOR ')
+    else
+      write(angka, ' ');
+
+    if (angka mod 8 = 0) then
+      writeln;
+  end;
+
+end.
