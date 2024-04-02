@@ -1,0 +1,47 @@
+program DaftarBelanja;
+uses crt;
+
+var
+  hargaBarang: array[1..3] of integer = (50000, 100000, 150000); 
+  promoBarang: array[1..3] of integer = (3, 2, 1); 
+  diskonBarang: array[1..3] of real = (0.35, 0.15, 0.5); 
+  totalBelanja, totalBayar: integer;
+  jenisBarang: char;
+  jumlahBarang: integer;
+  i: integer;
+
+begin
+clrscr;
+  totalBelanja := 0;
+  
+  writeln('SELAMAT DATANG DI ELSI FITS');
+  writeln('===================================================');
+  writeln('A. BAJU   (Rp50000/pcs) - Diskon 35% untuk pembelian lebih dari 3 pcs');
+  writeln('B. CELANA (Rp100000/pcs) - Diskon 15% untuk pembelian lebih dari 2 pcs');
+  writeln('C. MUKENA (Rp150000/pcs) - Diskon 5% untuk pembelian lebih dari 1 pcs');
+  writeln;
+  
+  // Input jenis barang dan jumlah barang yang dibeli
+  for i := 1 to 3 do
+  begin
+    write('Jumlah barang ', chr(64 + i), ': ');
+    readln(jumlahBarang);
+    
+    // Hitung total belanja
+    totalBelanja := totalBelanja + (jumlahBarang * hargaBarang[i]);
+    
+    // Diskon untuk barang tertentu
+    if jumlahBarang >= promoBarang[i] then
+      totalBelanja := totalBelanja - round(jumlahBarang * hargaBarang[i] * diskonBarang[i]);
+  end;
+  
+  // Diskon untuk total belanja
+  if totalBelanja > 500000 then
+    totalBelanja := totalBelanja - round(totalBelanja * 0.1);
+  
+  writeln;
+  writeln('***************************************************');
+  writeln('Total belanja: Rp', totalBelanja);
+  writeln(' ');
+  writeln('TERIMA KASIH TELAH BERBELANJA DI ELSI FITS');
+end.
