@@ -1,0 +1,41 @@
+def input_data(n):
+    data = []
+    for _ in range(n):
+        num = float(input("Masukkan angka: "))
+        data.append(num)
+    return data
+
+def hitung_mean(data):
+    return sum(data) / len(data)
+
+def hitung_modus(data):
+    counts = {}
+    for num in data:
+        if num in counts:
+            counts[num] += 1
+        else:
+            counts[num] = 1
+    max_count = max(counts.values())
+    modus = [num for num, count in counts.items() if count == max_count]
+    return modus
+
+def hitung_variance(data):
+    mean = hitung_mean(data)
+    variance = sum((x - mean) ** 2 for x in data) / len(data)
+    return variance
+
+def tampilkan_hasil(mean, modus, variance):
+    print("| mean     |   {}  |".format(mean))
+    print("| modus    |          {}          |".format(', '.join(map(str, modus))))
+    print("| variance |  {}   |".format(variance))
+
+def main():
+    n = int(input("Masukkan jumlah data: "))
+    data = input_data(n)
+    mean = hitung_mean(data)
+    modus = hitung_modus(data)
+    variance = hitung_variance(data)
+    tampilkan_hasil(mean, modus, variance)
+
+if __name__ == "__main__":
+    main()
