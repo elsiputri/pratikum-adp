@@ -1,0 +1,31 @@
+from termcolor import cprint
+
+def print_mit_logo():
+    # Baris pertama: M bagian kiri, I bagian atas, T bagian atas
+    for i in range(2):
+        cprint("    ", "white", "on_red", end="  ")  # M kiri
+        cprint("    ", "white", "on_red", end="  ")  # Spasi
+        cprint("    ", "white", "on_red", end="  ")  # m kanan atas
+        cprint("    ", "white", "on_red", end="  ")  # Spasi
+        cprint("                ", "white", "on_red")  # T atas
+        
+
+    # Baris kedua: M bagian tengah
+    for i in range(3):
+        cprint("    ", "white", "on_red", end="  ")
+   # M kiri
+        cprint("    ", "white", "on_red", end="  ")  # M tengah
+        cprint("    ", "white", "on_red", end="  ")  # m kanan
+        print("    ",end="  ") 
+      # i tengah
+        print("   ") # T kanan
+           
+
+    # Baris ketiga: M bagian kanan
+    for i in range(5):
+        cprint("    ", "white", "on_red", end="  ")  # M kiri bawah
+        cprint("    ", "white", "on_grey", end="  ")  # m tengah
+        cprint("    ", "white", "on_red", end="  ")  # m kanan
+        cprint("    ", "white", "on_dark_grey", end="  ") 
+        cprint("    ", "white", "on_red")  # i bawah 
+print_mit_logo()
